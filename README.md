@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -48,3 +49,34 @@ export default tseslint.config({
   },
 })
 ```
+=======
+# Nathandel-OnlineShop
+Ett projekt för att hantera produkter med frontend och backend
+# Nathandel / Online Shop
+
+## Beskrivning
+Ett projekt för att skapa en näthandel där användare kan:
+- Visa en lista över produkter.
+- Visa detaljer om en specifik produkt.
+
+Projektet inkluderar både en frontend och en backend med REST API.
+
+## Teknologier som används
+- **Frontend**: React, Vite, TypeScript
+- **Backend**: Node.js, Express
+- **Övriga beroenden**: Axios, React Router DOM, CORS
+
+## Funktioner
+- Lista alla produkter med namn och pris.
+- Visa detaljer om en specifik produkt:
+  - Beskrivning
+  - Antal i lager
+- Frontend och backend fungerar tillsammans via ett REST API.
+
+## Installation
+
+### Backend
+1. Klona detta repository:
+   ```bash
+   git clone https://github.com/<ditt-username>/Nathandel.git
+>>>>>>> f07a8c3a2a7f056368b37c6f50f6c85b38771cf8
