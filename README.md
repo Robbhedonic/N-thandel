@@ -79,4 +79,3 @@ Projektet inkluderar både en frontend och en backend med REST API.
 1. Klona detta repository:
    ```bash
    git clone https://github.com/<ditt-username>/Nathandel.git
->>>>>>> f07a8c3a2a7f056368b37c6f50f6c85b38771cf8

@@ -1,3 +1,5 @@
+// backend/routes/product.js
+
 import express from "express";
 import products from "../data/products.js"; // Ruta hacia los datos
 
