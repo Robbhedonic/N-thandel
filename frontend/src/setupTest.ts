@@ -11,10 +11,22 @@
 
 
 
-import '@testing-library/jest-dom'; // Para usar las aserciones de jest-dom
+// import '@testing-library/jest-dom';  // Para usar las aserciones de jest-dom
+
+// // Mock global para localStorage usando vi.fn() (Vitest)
+// global.localStorage = {
+//   getItem: vi.fn().mockReturnValue(null),  // Usar vi.fn() en lugar de jest.fn()
+//   setItem: vi.fn(),
+//   removeItem: vi.fn(),
+//   clear: vi.fn(),
+// };
+
+
+import '@testing-library/jest-dom';  // Para usar las aserciones de jest-dom
+import { vi } from 'vitest';
 
 // Mock global para localStorage usando vi.fn() (Vitest)
-global.localStorage = {
+globalThis.localStorage = {
   getItem: vi.fn().mockReturnValue(null), // Cambiar jest.fn() por vi.fn()
   setItem: vi.fn(),
   removeItem: vi.fn(),

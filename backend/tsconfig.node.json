@@ -1,26 +1,24 @@
-// backend/tsconfig.node.json
-
 {
   "compilerOptions": {
-    // "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2022",
     "lib": ["ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    // "noUncheckedSideEffectImports": true
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "backend/**/*.js",  // Cambia esto a JavaScript si solo trabajas con JS
+    "vite.config.ts"    // Si usas vite.config.ts en el backend
+  ],
+  "exclude": [
+    "node_modules"      // Normalmente excluimos node_modules
+  ]
 }
