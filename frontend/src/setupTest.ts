@@ -1,34 +1,115 @@
-// frotend/src/setupTest.ts
+
+// frontend/src/setupTest.ts
+
+
 
 // import '@testing-library/jest-dom';
-// import { beforeAll, afterEach, afterAll } from 'vitest';
-// // import { server } from './Mocks/server';
+// // Mock de localStorage
+// const localStorageMock = (() => {
+//   let store: { [key: string]: string } = {};
 
-// beforeAll(() => server.listen());
-// afterEach(() => server.resetHandlers());
-// afterAll(() => server.close());
+//   return {
+//     getItem: jest.fn((key: string) => store[key] || null),
+//     setItem: jest.fn((key: string, value: string) => {
+//       store[key] = value;
+//     }),
+//     removeItem: jest.fn((key: string) => {
+//       delete store[key];
+//     }),
+//     clear: jest.fn(() => {
+//       store = {};
+//     }),
+//     get length() {
+//       return Object.keys(store).length;
+//     },
+//     key: jest.fn((index: number) => {
+//       const keys = Object.keys(store);
+//       return keys[index] || null;
+//     }),
+//   };
+// })();
+
+// // Asignar el mock a window.localStorage
+// Object.defineProperty(window, 'localStorage', {
+//   value: localStorageMock,
+// });
 
 
 
+// // frontend/src/setupTests.ts
 
-// import '@testing-library/jest-dom';  // Para usar las aserciones de jest-dom
+// import '@testing-library/jest-dom';
+// import { vi } from 'vitest';
 
-// // Mock global para localStorage usando vi.fn() (Vitest)
-// global.localStorage = {
-//   getItem: vi.fn().mockReturnValue(null),  // Usar vi.fn() en lugar de jest.fn()
-//   setItem: vi.fn(),
-//   removeItem: vi.fn(),
-//   clear: vi.fn(),
-// };
+// // Mock de localStorage
+// const localStorageMock = (() => {
+//   let store: Record<string, string> = {};
+
+//   return {
+//     getItem: vi.fn((key: string) => store[key] || null),
+//     setItem: vi.fn((key: string, value: string) => {
+//       store[key] = value;
+//     }),
+//     removeItem: vi.fn((key: string) => {
+//       delete store[key];
+//     }),
+//     clear: vi.fn(() => {
+//       store = {};
+//     }),
+//     get length() {
+//       return Object.keys(store).length;
+//     },
+//     key: vi.fn((index: number) => {
+//       const keys = Object.keys(store);
+//       return keys[index] || null;
+//     }),
+//   };
+// })();
+
+// // Asignar el mock a window.localStorage
+// Object.defineProperty(window, 'localStorage', {
+//   value: localStorageMock,
+//   writable: true, // Asegura que pueda ser reasignado en otras pruebas
+// });
+
+// // Exportar el mock para que pueda ser reutilizado si es necesario
+// export { localStorageMock };
 
 
-import '@testing-library/jest-dom';  // Para usar las aserciones de jest-dom
+// frontend/src/setupTests.ts
+import '@testing-library/jest-dom'; // Para extender las aserciones como 'toBeInTheDocument'
 import { vi } from 'vitest';
 
-// Mock global para localStorage usando vi.fn() (Vitest)
-globalThis.localStorage = {
-  getItem: vi.fn().mockReturnValue(null), // Cambiar jest.fn() por vi.fn()
-  setItem: vi.fn(),
-  removeItem: vi.fn(),
-  clear: vi.fn(),
-};
+// Mock de localStorage
+const localStorageMock = (() => {
+  let store: Record<string, string> = {};
+
+  return {
+    getItem: vi.fn((key: string) => store[key] || null),
+    setItem: vi.fn((key: string, value: string) => {
+      store[key] = value;
+    }),
+    removeItem: vi.fn((key: string) => {
+      delete store[key];
+    }),
+    clear: vi.fn(() => {
+      store = {};
+    }),
+    get length() {
+      return Object.keys(store).length;
+    },
+    key: vi.fn((index: number) => {
+      const keys = Object.keys(store);
+      return keys[index] || null;
+    }),
+  };
+})();
+
+// Asignar el mock a window.localStorage
+Object.defineProperty(window, 'localStorage', {
+  value: localStorageMock,
+  writable: true,
+});
+
+// Exportar el mock para que pueda ser reutilizado si es necesario
+export { localStorageMock };

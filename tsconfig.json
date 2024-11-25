@@ -26,16 +26,38 @@
 
 
 
+// {
+//   "compilerOptions": {
+//     "types":["vitest/globals"],
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "jsx": "react-jsx",  // Necesario para trabajar con JSX en TypeScript
+//     "moduleResolution": "Node",
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true
+//   },
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./backend/tsconfig.node.json" }
+//   ]
+// }
+
 {
   "compilerOptions": {
-    "types":["vitest/globals"],
+    
+    "types": ["vitest/globals"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
     "target": "ES2020",
     "module": "ESNext",
-    "jsx": "react-jsx",  // Necesario para trabajar con JSX en TypeScript
+    "jsx": "react-jsx",
     "moduleResolution": "Node",
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "files": [],
   "references": [

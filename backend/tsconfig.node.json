@@ -1,24 +1,50 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2022",
+//     "lib": ["ES2023"],
+//     "module": "ESNext",
+//     "skipLibCheck": true,
+//     "moduleResolution": "node",
+//     "allowImportingTsExtensions": true,
+//     "isolatedModules": true,
+//     "moduleDetection": "force",
+//     "noEmit": true,
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true
+//   },
+//   "include": [
+//     "backend/**.js",  // Cambia esto a JavaScript si solo trabajas con JS
+//     "vite.config.ts"    // Si usas vite.config.ts en el backend
+//   ],
+//   "exclude": [
+//     "node_modules"      // Normalmente excluimos node_modules
+//   ]
+// }
+
+
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "target": "ES2022", // Versión moderna compatible con el backend
+    "lib": ["ES2023"], // Uso de características más recientes de JavaScript
+    "module": "CommonJS", // Node.js utiliza CommonJS por defecto
+    "skipLibCheck": true, // Omite verificación de tipos en bibliotecas
+    "moduleResolution": "node", // Resolución al estilo de Node.js
+    "allowJs": true, // Permite trabajar con archivos .js
+    "isolatedModules": false, // No aplica si no hay compilación directa
+    "noEmit": true, // No genera archivos .js compilados
+    "strict": true, // Habilita comprobaciones estrictas
+    "noUnusedLocals": true, // Marca variables no usadas como error
+    "noUnusedParameters": true, // Marca parámetros no usados como error
+    "noFallthroughCasesInSwitch": true // Previene errores en switch sin break
   },
   "include": [
-    "backend/**/*.js",  // Cambia esto a JavaScript si solo trabajas con JS
-    "vite.config.ts"    // Si usas vite.config.ts en el backend
+    "server.js", // Archivo principal del backend
+    "routes/**/*.js", // Todos los archivos .js en la carpeta routes
+    "data/**/*.js" // Todos los archivos .js en la carpeta data
   ],
   "exclude": [
-    "node_modules"      // Normalmente excluimos node_modules
+    "node_modules" // Excluye node_modules
   ]
 }
