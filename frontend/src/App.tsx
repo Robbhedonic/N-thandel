@@ -38,7 +38,7 @@ import ProductList from "./components/ProductList";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 import { CartProvider } from "./context/CartContext";  // Asegúrate de importar el CartProvider
-
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <Router>
@@ -53,6 +53,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} /> {/* El componente Cart está dentro del CartProvider */}
         </Routes>
       </CartProvider>
+      <Footer/>
     </Router>
   );
 };

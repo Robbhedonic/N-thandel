@@ -61,24 +61,91 @@
 // });
 
 
+// // frontend/src/components/ProductList.test.tsx
+
+// import { render, screen } from '@testing-library/react';
+// import { vi} from 'vitest'; // Importa 'expect' desde Vitest
+// import { expect } from 'vitest';
+// import axios from 'axios';
+// import '@testing-library/jest-dom'; // Importa jest-dom para extender las aserciones
+// import ProductList from './ProductList';
+
+
+// // Mock de axios
+// vi.mock('axios');
+
+// const mockProducts = [
+//   { id: 1, name: 'Producto 1', price: 50 },
+//   { id: 2, name: 'Producto 2', price: 30 },
+// ];
+
+// vi.mocked(axios.get).mockResolvedValue({
+//   data: mockProducts,
+// });
+
+// test('debería renderizar los productos correctamente', async () => {
+//   render(<ProductList />);
+
+//   const product1 = await screen.findByText('Producto 1');
+//   expect(product1).toBeInTheDocument();
+
+//   const product2 = await screen.findByText('Producto 2');
+//   expect(product2).toBeInTheDocument();
+// });
+
+
+
+// frontend/src/components/ProductList.test.tsx
+
+// import { render, screen } from '@testing-library/react';
+// import { vi } from 'vitest'; // Importa 'expect' desde Vitest
+// import { expect } from 'vitest';
+// import axios from 'axios';
+// import '@testing-library/jest-dom'; // Importa jest-dom para extender las aserciones
+// import ProductList from './ProductList';
+
+// // Mock de axios
+// vi.mock('axios');
+
+// const mockProducts = [
+//   { id: 1, name: 'Producto 1', price: 50 },
+//   { id: 2, name: 'Producto 2', price: 30 },
+// ];
+
+// vi.mocked(axios.get).mockResolvedValue({
+//   data: mockProducts,
+// });
+
+// test('debería renderizar los productos correctamente', async () => {
+//   render(<ProductList />);
+
+//   const product1 = await screen.findByText('Producto 1');
+//   expect(product1).toBeInTheDocument();
+
+//   const product2 = await screen.findByText('Producto 2');
+//   expect(product2).toBeInTheDocument();
+// });
+
+
 // frontend/src/components/ProductList.test.tsx
 
 import { render, screen } from '@testing-library/react';
-import { vi} from 'vitest'; // Importa 'expect' desde Vitest
-import { expect } from 'vitest';
+import { vi } from 'vitest'; // Importamos 'vi' para mocks y aserciones
 import axios from 'axios';
-import '@testing-library/jest-dom'; // Importa jest-dom para extender las aserciones
+import '@testing-library/jest-dom'; // Para extender las aserciones de jest
 import ProductList from './ProductList';
-
+import { expect } from 'vitest';
 
 // Mock de axios
 vi.mock('axios');
 
+// Datos simulados para los productos
 const mockProducts = [
   { id: 1, name: 'Producto 1', price: 50 },
   { id: 2, name: 'Producto 2', price: 30 },
 ];
 
+// Mock de la respuesta de axios
 vi.mocked(axios.get).mockResolvedValue({
   data: mockProducts,
 });
@@ -86,6 +153,7 @@ vi.mocked(axios.get).mockResolvedValue({
 test('debería renderizar los productos correctamente', async () => {
   render(<ProductList />);
 
+  // Verificar que los productos se renderizan correctamente
   const product1 = await screen.findByText('Producto 1');
   expect(product1).toBeInTheDocument();
 
