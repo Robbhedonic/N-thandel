@@ -179,8 +179,8 @@ button:focus-visible {
 
 .cardProduct{
   border: solid white 2px;
-  height: 360px;
-  width: 250px;
+  height: 380px;
+  width: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -192,8 +192,8 @@ button:focus-visible {
   border: solid rgba(0, 0, 0, 0.1) 1px;
   text-align: center;
   text-wrap:pretty ;
-  padding: 20px;
- 
+  padding: 20px 10px;
+  line-height: 25px;
 }
 .cardProduct:hover{
    box-shadow: 0 1px 1px 1px rgba(24, 24, 24, 0.1);
@@ -260,7 +260,7 @@ button:focus-visible {
   background: white;
 }
 .product-image {
-  height: 10em;
+  height: 8.5em;
   border-radius: 8px;
   /* border: solid 1px red; */
 }
@@ -561,7 +561,7 @@ textarea {
 /* frontend/src/App.css */
 
 .detailProduct{
-  background-color: #f0f8ff;
+  background-color: white;
   color: black;
   text-align: center;
   padding: 40px;
@@ -579,4 +579,107 @@ color: grey;
 }
 .detailProduct h2{
 font-size: 28px;
+}
+
+
+.cartShoppingList{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleCart{
+  background: white;
+  width: 100%;
+  text-align: center;
+  color: black;
+}
+.titleCart h1{
+  color: black;
+  padding: 2%;
+}
+
+select{
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+
+/* frontend/src/components/QuantityInput.css */
+.rc-input-number-handler-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.rc-input-number-handler-up,
+.rc-input-number-handler-down {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.rc-input-number-handler-up:hover,
+.rc-input-number-handler-down:hover {
+  background-color: #0056b3;
+}
+h2, h4{
+  color: black;
+}
+
+.button-card{
+  margin-top: 20px;
+}
+
+.quantity-part{
+  background: white;
+  padding: 5px 15px;
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  /* border: 1px solid rgba(190, 190, 190, 0.6); */
+}
+.quatity-button{
+  background-color: rgb(0, 0, 0);
+  border: solid rgba(0, 0, 0, 0.4) 1px;
+  color: white;
+  padding: 5px 5px;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 10px;
+  width: 30px;
+  
+}
+.quatity-number{
+  padding: 8px 30px;
+  border: solid rgba(0, 0, 0, 0.563) 1px;
+  border-radius: 10px;
+}
+
+.cartList{
+
+  width: 100%;
+
+
+}
+.list-shopping{
+  width: 100%;
+   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: solid 2px lightblue;
+  justify-content: space-evenly;
+}
+
+
+.logo{
+  width: 60px;
 }

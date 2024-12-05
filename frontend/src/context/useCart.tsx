@@ -1,4 +1,4 @@
-;
+
 
 // frontend/src/components/Cart.tsx
 // import { useCart } from "../context/useCart";

@@ -2,6 +2,8 @@
 
 // backend/data/product.js
 
+
+
 const products = [
   {
     id: 1,

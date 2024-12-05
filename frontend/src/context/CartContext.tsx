@@ -1,34 +1,155 @@
 
-// frontend/src/context/CartContext.tsx
+// // frontend/src/context/CartContext.tsx
+
+
+// import { createContext, useContext, useState, ReactNode } from "react";
+// import { addToCart, removeFromCart, clearCart } from "../context/cartUtils";
+
+// export interface Product {
+//   id: number;
+//   name: string;
+//   price: number;
+//   imagePath: string;
+//   quantity: number;
+// }
+
+// interface CartContextType {
+//   cart: Product[];
+//   addToCart: (product: Product) => void;
+//   removeFromCart: (id: number) => void;
+//   clearCart: () => void;
+// }
+
+// const CartContext = createContext<CartContextType | undefined>(undefined);
+
+// export const useCart = () => {
+//   const context = useContext(CartContext);
+//   if (!context) {
+//     throw new Error("useCart must be used within a CartProvider");
+//   }
+//   return context;
+// };
+
+// interface CartProviderProps {
+//   children: ReactNode;
+// }
+
+// export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+//   const [cart, setCart] = useState<Product[]>([]);
+
+//   const handleAddToCart = (product: Product) => {
+//     setCart((prevCart) => addToCart(prevCart, product));
+//   };
+
+//   const handleRemoveFromCart = (id: number) => {
+//     setCart((prevCart) => removeFromCart(prevCart, id));
+//   };
+
+//   const handleClearCart = () => {
+//     setCart(clearCart());
+//   };
+
+//   return (
+//     <CartContext.Provider
+//       value={{
+//         cart,
+//         addToCart: handleAddToCart,
+//         removeFromCart: handleRemoveFromCart,
+//         clearCart: handleClearCart,
+//       }}
+//     >
+//       {children}
+//     </CartContext.Provider>
+//   );
+// };
+
+
+// // frontend/src/context/CartContext.tsx
+// import { createContext, useContext, useState, ReactNode } from "react";
+// import { addToCart, removeFromCart, clearCart } from "../utils/cartUtils"; // Ajusta la ruta aquí
+
+// export interface Product {
+//   id: number;
+//   name: string;
+//   price: number;
+//   imagePath: string;
+//   quantity: number;
+// }
+
+// interface CartContextType {
+//   cart: Product[];
+//   addToCart: (product: Product) => void;
+//   removeFromCart: (id: number) => void;
+//   clearCart: () => void;
+// }
+
+// const CartContext = createContext<CartContextType | undefined>(undefined);
+
+// export const useCart = () => {
+//   const context = useContext(CartContext);
+//   if (!context) {
+//     throw new Error("useCart must be used within a CartProvider");
+//   }
+//   return context;
+// };
+
+// interface CartProviderProps {
+//   children: ReactNode;
+// }
+
+// export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+//   const [cart, setCart] = useState<Product[]>([]);
+
+//   const handleAddToCart = (product: Product) => {
+//     setCart((prevCart) => addToCart(prevCart, product));
+//   };
+
+//   const handleRemoveFromCart = (id: number) => {
+//     setCart((prevCart) => removeFromCart(prevCart, id));
+//   };
+
+//   const handleClearCart = () => {
+//     setCart(clearCart());
+//   };
+
+//   return (
+//     <CartContext.Provider
+//       value={{
+//         cart,
+//         addToCart: handleAddToCart,
+//         removeFromCart: handleRemoveFromCart,
+//         clearCart: handleClearCart,
+//       }}
+//     >
+//       {children}
+//     </CartContext.Provider>
+//   );
+// };
+
+
+
+
 import { createContext, useContext, useState, ReactNode } from "react";
-// frontend/src/components/Cart.tsx
-
-
-
-// Uso de addToCart, removeFromCart y clearCart en el componente
-
-
-// Definir la interfaz del producto
-
+import { addToCart, removeFromCart, clearCart, calculateTotal } from "../utils/cartUtils";
 
 export interface Product {
   id: number;
   name: string;
   price: number;
-  imagePath: string;  // Agregar imagePath
+  imagePath: string;
+  quantity: number;
 }
 
-// Definir el tipo de contexto
 interface CartContextType {
   cart: Product[];
   addToCart: (product: Product) => void;
   removeFromCart: (id: number) => void;
+  clearCart: () => void;
+  calculateTotal: () => number;
 }
 
-// Crear el contexto
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Hook para usar el contexto del carrito
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
@@ -37,7 +158,6 @@ export const useCart = () => {
   return context;
 };
 
-// Componente CartProvider que proporciona el contexto
 interface CartProviderProps {
   children: ReactNode;
 }
@@ -45,16 +165,32 @@ interface CartProviderProps {
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<Product[]>([]);
 
-  const addToCart = (product: Product) => {
-    setCart((prevCart) => [...prevCart, product]);
+  const handleAddToCart = (product: Product) => {
+    setCart((prevCart) => addToCart(prevCart, product));
   };
 
-  const removeFromCart = (id: number) => {
-    setCart((prevCart) => prevCart.filter((product) => product.id !== id));
+  const handleRemoveFromCart = (id: number) => {
+    setCart((prevCart) => removeFromCart(prevCart, id));
+  };
+
+  const handleClearCart = () => {
+    setCart(clearCart());
+  };
+
+  const handleCalculateTotal = () => {
+    return calculateTotal(cart);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart: handleAddToCart,
+        removeFromCart: handleRemoveFromCart,
+        clearCart: handleClearCart,
+        calculateTotal: handleCalculateTotal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

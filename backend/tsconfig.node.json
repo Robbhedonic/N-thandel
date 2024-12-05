@@ -23,7 +23,7 @@
 //   ]
 // }
 
-
+// backend/tsconfig.node.json
 {
   "compilerOptions": {
     "target": "ES2022", // Versión moderna compatible con el backend

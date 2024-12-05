@@ -44,21 +44,146 @@
 //   ]
 // }
 
+// {
+//   "compilerOptions": {
+    
+//     "types": ["vitest/globals"],
+//     "typeRoots": ["./node_modules/@types", "./src/@types"],
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "jsx": "react-jsx",
+//     "moduleResolution": "Node",
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "allowSyntheticDefaultImports": true,
+//     "esModuleInterop": true
+//   },
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./backend/tsconfig.node.json" }
+//   ]
+// }
+
+// {
+//   "compilerOptions": {
+//     "types": ["msw", "vitest/globals", "vite/client", "node"]
+// , // Incluye 'node' para resolver errores de Node.js
+//     "typeRoots": ["./node_modules/@types"],
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "jsx": "react-jsx",
+//     "moduleResolution": "Node",
+//     "strict": true,
+//     "noImplicitAny": true, // Activa para que los parámetros sin tipo se marquen como error
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "allowSyntheticDefaultImports": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true, // Evita conflictos con las declaraciones de tipos
+//     "resolveJsonModule": true // Necesario si importas JSON en tu proyecto
+//   },
+//   "include": [
+//   "src",
+//   "node_modules/@types"
+// ],
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./backend/tsconfig.node.json" }
+//   ]
+// }
+
+// //, "jest", "node"
+
+// tsconfig.json
+
+// {
+//   "compilerOptions": {
+//     "types": ["vitest", "node"],  // Configura solo lo necesario
+//     "typeRoots": ["./node_modules/@types"],     // Verifica que este directorio esté bien configurado
+//     "composite": true,                          // Requiere para proyectos referenciados
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "jsx": "react-jsx",
+//     "moduleResolution": "Node",
+//     "strict": true,
+//     "noImplicitAny": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "allowSyntheticDefaultImports": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "resolveJsonModule": true
+//   },
+//   "include": ["src"],
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./backend/tsconfig.node.json" }
+//   ]
+// }
+
+
+// {
+//   "compilerOptions": {
+//     "baseUrl": "./",  // Configura el directorio raíz para las rutas no relativas
+//     "types": ["vitest/globals", "node" , "testing-library__jest-dom"],
+//     "typeRoots": ["./node_modules/@types"],
+//     "composite": true,
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "jsx": "react-jsx",
+//     "moduleResolution": "Node",
+//     "strict": true,
+//     "noImplicitAny": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "allowSyntheticDefaultImports": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "resolveJsonModule": true,
+//     "paths": {
+//       "@context/*": ["src/context/*"],
+//       "@components/*": ["src/components/*"],
+//       "@utils/*": ["src/utils/*"]
+//     }
+//   },
+//   "include": ["src", "src/**/*.test.tsx", "src/**/*.test.ts"],
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./backend/tsconfig.node.json" }
+//   ]
+// }
+
+
 {
   "compilerOptions": {
-    
-    "types": ["vitest/globals"],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "baseUrl": "./",
+    "types": ["node"], // Elimina 'vitest' y '@testing-library/jest-dom'
+    "typeRoots": ["./node_modules/@types"],
+    "composite": true,
     "target": "ES2020",
     "module": "ESNext",
     "jsx": "react-jsx",
     "moduleResolution": "Node",
     "strict": true,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@context/*": ["src/context/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
+  "include": ["src", "src/**/*.test.tsx", "src/**/*.test.ts"],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

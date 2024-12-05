@@ -36,6 +36,7 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["vite/client", "jest", "@testing-library/jest-dom"],
 
     /* Bundler mode */
     "moduleResolution": "node",   // Cambié "Bundler" a "node" porque "node" es más común
