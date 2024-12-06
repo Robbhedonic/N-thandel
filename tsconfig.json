@@ -159,31 +159,167 @@
 // }
 
 
+// {
+//   "compilerOptions": {
+//     "baseUrl": "./",
+//     "types": ["node"], // Elimina 'vitest' y '@testing-library/jest-dom'
+//     "typeRoots": ["./node_modules/@types"],
+//     "composite": true,
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "jsx": "react-jsx",
+//     "moduleResolution": "Node",
+//     "strict": true,
+//     "noImplicitAny": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "allowSyntheticDefaultImports": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "resolveJsonModule": true,
+//     "paths": {
+//       "@context/*": ["src/context/*"],
+//       "@components/*": ["src/components/*"],
+//       "@utils/*": ["src/utils/*"]
+//     }
+//   },
+//   "include": ["src", "src/**/*.test.tsx", "src/**/*.test.ts"],
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./backend/tsconfig.node.json" }
+//   ]
+// }
+
+
+// {
+//   "compilerOptions": {
+//     "baseUrl": "./",
+//     "types": ["vitest/globals", "testing-library__jest-dom"],
+//     "typeRoots": ["./node_modules/@types"],
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "jsx": "react-jsx",
+//     "moduleResolution": "Node",
+//     "strict": true,
+//     "allowSyntheticDefaultImports": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "resolveJsonModule": true,
+//     "paths": {
+//       "@components/*": ["src/components/*"]
+//     }
+//   },
+//   "include": ["src"],
+//   "exclude": ["node_modules"]
+// }
+
+
+
+// // tsconfig.app.json
+// {
+//   "compilerOptions": {
+//     // "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+//     "target": "ES2020",
+//     "useDefineForClassFields": true,
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "module": "ESNext",
+//     "skipLibCheck": true,
+//     "types": ["vite/client", "jest", "@testing-library/jest-dom"],
+
+//     /* Bundler mode */
+//     "moduleResolution": "node",   // Cambié "Bundler" a "node" porque "node" es más común
+//     "allowImportingTsExtensions": true,
+//     "isolatedModules": true,
+//     "moduleDetection": "force",
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+
+//     /* Linting */
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true,
+//     // "noUncheckedSideEffectImports": true
+//   },
+//   "include": [
+//     "frontend/src",                 // Asegúrate de que esté incluida la carpeta frontend/src
+//     "frontend/src/vite-env.d.ts"    // Solo incluye este archivo si es necesario para tipos globales
+// , "babel.config.js"  ]
+// }
+
+
+
+//{
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "useDefineForClassFields": true,
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "module": "ESNext",
+//     "skipLibCheck": true,
+//     "types": ["vite/client", "vitest"], // Tipos para Vite y Vitest
+//     "moduleResolution": "node",
+//     "allowImportingTsExtensions": true,
+//     "isolatedModules": true,
+//     "moduleDetection": "force",
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true
+//   },
+//   "include": [
+//     "frontend/src",
+//     "frontend/src/vite-env.d.ts",
+//     "vitest.setup.ts"
+//   ]
+// }
+
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "module": "ESNext",
+//     "moduleResolution": "node",
+//     "strict": true,
+//     "jsx": "react-jsx",
+//     "skipLibCheck": true,
+//     "noEmit": true,
+//     "types": ["vite/client", "vitest"],
+//     "allowImportingTsExtensions": true,
+//     "isolatedModules": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "esModuleInterop": true,
+//     "forceConsistentCasingInFileNames": true
+//   },
+//   "include": [
+//     "frontend/src",
+//     "vitest.setup.ts",
+//     "frontend/src/vite-env.d.ts"
+//   ],
+//   "exclude": ["node_modules"]
+// }
+
+
+// // tsconfig.json
+
+// {
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./backend/tsconfig.node.json" }
+//   ]
+// }
+
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "types": ["node"], // Elimina 'vitest' y '@testing-library/jest-dom'
-    "typeRoots": ["./node_modules/@types"],
-    "composite": true,
-    "target": "ES2020",
-    "module": "ESNext",
-    "jsx": "react-jsx",
-    "moduleResolution": "Node",
-    "strict": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+      //  "types": ["vitest/globals"],
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "@context/*": ["src/context/*"],
-      "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"]
-    }
+    // otras opciones de compilación que ya tengas
   },
-  "include": ["src", "src/**/*.test.tsx", "src/**/*.test.ts"],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

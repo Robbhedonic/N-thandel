@@ -36,18 +36,6 @@ const ProductDetails: React.FC = () => {
     return <p>Loading product details...</p>;
   }
 
-  // return (
-  //   <div>
-  //     <h1>{product.name}</h1>
-  //     <p>{product.description}</p>
-  //     <h3>${product.price}</h3>
-  //     <p>Stock: {product.stock}</p>
-  //     {/* Mostrar la imagen del producto con la URL correcta */}
-  //     {product.imagePath && (
-  //       <img className='product-image' src={product.imagePath} alt={product.name} />
-  //     )}
-  //   </div>
-  // );
 
    return (
     <div className="detailProduct">

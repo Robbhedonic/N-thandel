@@ -13,17 +13,13 @@
 
 // frontend/src/setupTest.ts
 
-
-// src/setupTest.ts
 import '@testing-library/jest-dom';
-
-import "@testing-library/jest-dom";
-import { beforeAll, afterEach, afterAll, vi } from "vitest";
-import { server } from "../src/__mocks__/server";
+import { beforeAll, afterEach, afterAll, vi } from 'vitest';
+import { server } from './__mocks__/server';
 
 beforeAll(() => server.listen());
 afterEach(() => {
   server.resetHandlers();
-  vi.clearAllMocks(); // Limpia los mocks de Vitest
+  vi.clearAllMocks();
 });
 afterAll(() => server.close());

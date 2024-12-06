@@ -23,28 +23,63 @@
 //   ]
 // }
 
-// backend/tsconfig.node.json
+// //backend/tsconfig.node.json
+// {
+//   "compilerOptions": {
+//     "target": "ES2022", // Versión moderna compatible con el backend
+//     "lib": ["ES2023"], // Uso de características más recientes de JavaScript
+//     "module": "CommonJS", // Node.js utiliza CommonJS por defecto
+//     "skipLibCheck": true, // Omite verificación de tipos en bibliotecas
+//     "moduleResolution": "node", // Resolución al estilo de Node.js
+//     "allowJs": true, // Permite trabajar con archivos .js
+//     "isolatedModules": false, // No aplica si no hay compilación directa
+//     "noEmit": true, // No genera archivos .js compilados
+//     "strict": true, // Habilita comprobaciones estrictas
+//     "noUnusedLocals": true, // Marca variables no usadas como error
+//     "noUnusedParameters": true, // Marca parámetros no usados como error
+//     "noFallthroughCasesInSwitch": true // Previene errores en switch sin break
+//   },
+//   "include": [
+//     "server.js", // Archivo principal del backend
+//     "routes/**/*.js",
+//     "data/**/*.js" 
+//   ],
+//   "exclude": [
+//     "node_modules" // Excluye node_modules
+//   ]
+// }
+
+
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",                  // Nivel de JavaScript que TypeScript compilará
+//     "lib": ["ES2020"],                  // Bibliotecas disponibles (en este caso, ES2020)
+//     "module": "CommonJS",               // Módulos de Node.js
+//     "moduleResolution": "node",         // Resolución de módulos estilo Node.js
+//     "strict": true,                     // Activa las reglas estrictas de TypeScript
+//     "esModuleInterop": true,            // Soporte para importar módulos ES en CommonJS
+//     "skipLibCheck": true,               // Omite comprobaciones de tipos en dependencias
+//     "outDir": "./dist",                 // Carpeta donde se guardarán los archivos compilados
+//     "rootDir": "."                      // Carpeta raíz para los archivos fuente
+//   },
+//   "include": ["."],                    // Incluye todos los archivos en la carpeta backend
+//   "exclude": ["node_modules"]          // Excluye dependencias de Node.js
+// }
+
 {
   "compilerOptions": {
-    "target": "ES2022", // Versión moderna compatible con el backend
-    "lib": ["ES2023"], // Uso de características más recientes de JavaScript
-    "module": "CommonJS", // Node.js utiliza CommonJS por defecto
-    "skipLibCheck": true, // Omite verificación de tipos en bibliotecas
-    "moduleResolution": "node", // Resolución al estilo de Node.js
-    "allowJs": true, // Permite trabajar con archivos .js
-    "isolatedModules": false, // No aplica si no hay compilación directa
-    "noEmit": true, // No genera archivos .js compilados
-    "strict": true, // Habilita comprobaciones estrictas
-    "noUnusedLocals": true, // Marca variables no usadas como error
-    "noUnusedParameters": true, // Marca parámetros no usados como error
-    "noFallthroughCasesInSwitch": true // Previene errores en switch sin break
+    "target": "ES2020",                  // Nivel de JavaScript compatible
+    "lib": ["ES2020"],                  // Librerías necesarias
+    "module": "CommonJS",               // Estilo de módulos de Node.js
+    "moduleResolution": "node",         // Resolución de módulos Node.js
+    "strict": false,                    // No aplicar reglas estrictas para archivos JS
+    "esModuleInterop": true,            // Compatibilidad con módulos ES
+    "skipLibCheck": true,               // Evitar chequeos en dependencias
+    "allowJs": true,                    // Permitir archivos `.js`
+    "checkJs": false,                   // No hacer chequeos estrictos de tipos en JS
+    "outDir": "./dist",                 // Carpeta de salida para los archivos compilados
+    "rootDir": "."                      // Carpeta raíz del backend
   },
-  "include": [
-    "server.js", // Archivo principal del backend
-    "routes/**/*.js", // Todos los archivos .js en la carpeta routes
-    "data/**/*.js" // Todos los archivos .js en la carpeta data
-  ],
-  "exclude": [
-    "node_modules" // Excluye node_modules
-  ]
+  "include": ["config", "data", "models", "routes", "server.js"], // Incluir directorios y archivos
+  "exclude": ["node_modules"]          // Excluir dependencias
 }

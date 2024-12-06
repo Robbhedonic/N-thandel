@@ -32,14 +32,26 @@
 //   },
 // });
 
+ // vite.config.ts o vitest.config.ts
+// import { defineConfig } from 'vitest/config';
 
-// vite.config.ts o vitest.config.ts
-import { defineConfig } from 'vitest/config';
+// export default defineConfig({
+//   test: {
+//     globals: true,
+//     environment: 'jsdom',
+//     setupFiles: './frontend/src/setupTest.ts',
+//   },
+// });
+
+
+//frontend/src/vite.config.ts
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './frontend/src/setupTest.ts',
+  plugins: [react()],
+  server: {
+    port: 3000,
   },
 });
