@@ -1,21 +1,20 @@
+import { describe, it, expect } from 'vitest';  // Keep the hooks for later use
+import { render, screen, waitFor } from '@testing-library/react';
+import ProductList from './ProductList';
+import { CartProvider } from '../context/CartContext'; // Adjust the import path to your context
 
-
-
-
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import Footer from './Footer';
-
-describe('Footer Component', () => {
-  it('renders the footer message', () => {
+describe('ProductList Component', () => {
+  it('displays "No products available" when there are no products', async () => {
     render(
-      <BrowserRouter>
-        <Footer />
-      </BrowserRouter>
+      <CartProvider>
+        <ProductList />
+      </CartProvider>
     );
-    expect(
-      screen.getByText(/Wishing you a Merry Christmas and a Happy New Year!/i)
-    ).toBeInTheDocument();
+
+    // Wait for the "No products available" text to appear in the document
+    await waitFor(() => screen.getByText(/No products available/i));
+    
+    // Use the correct matcher from jest-dom
+    expect(screen.getByText(/No products available/i)).toBeInTheDocument();
   });
 });

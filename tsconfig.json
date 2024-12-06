@@ -316,7 +316,7 @@
 
 {
   "compilerOptions": {
-      //  "types": ["vitest/globals"],
+       "types": ["vitest/globals"],
     "allowSyntheticDefaultImports": true,
     // otras opciones de compilación que ya tengas
   },

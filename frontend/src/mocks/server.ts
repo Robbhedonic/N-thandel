@@ -13,10 +13,10 @@
 
 
 
-// frontend/src/__mocks__/server.ts
-import { setupServer } from 'msw/node';
-import { handlers } from './handlers'; // Asegúrate de que importes tus handlers aquí
+// // src/mocks/server.ts
+// import { setupServer } from 'msw/node';
+// import { handlers } from './handlers';
 
-// Configuración del servidor mock de MSW
-export const server = setupServer(...handlers);
+// const server = setupServer(...handlers);
 
+// server.listen();

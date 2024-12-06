@@ -47,11 +47,11 @@
 // ];
 
 
-// frontend/src/__mocks__/handlers.ts
-import { http, HttpResponse } from 'msw';
+// // src/mocks/handlers.ts
+// import { rest } from 'msw';
 
-export const handlers = [
-  http.get('/user', () => {
-    return HttpResponse.json({ username: 'john_doe' });
-  }),
-];
+// export const handlers = [
+//   rest.get('/api/endpoint', (req, res, ctx) => {
+//     return res(ctx.status(200), ctx.json({ message: 'Success' }));
+//   })
+// ];

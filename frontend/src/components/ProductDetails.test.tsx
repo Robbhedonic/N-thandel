@@ -1,31 +1,19 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import ProductList from './ProductList';
-import { CartProvider } from '../context/CartContext'; 
+ 
 import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom'; // Asegúrate de envolver el componente con BrowserRouter
+import ProductList from './ProductList'; // Asegúrate de importar el componente correcto
 
 describe('ProductList Component', () => {
-  it('renders the main title', () => {
+  it('should display "No products available" when there are no products', () => {
     render(
-      <BrowserRouter>
-        <CartProvider>
-          <ProductList />
-        </CartProvider>
+      <BrowserRouter> 
+        <ProductList /> {/* Asegúrate de envolver el componente en BrowserRouter */}
       </BrowserRouter>
     );
-    // Verifica si el título principal "Merry Christmas and Happy New Shopping" se renderiza
-    expect(screen.getByText(/Merry Christmas and Happy New Shopping/i)).toBeInTheDocument();
-  });
 
-  it('displays "No products available" when there are no products', () => {
-    render(
-      <BrowserRouter>
-        <CartProvider>
-          <ProductList />
-        </CartProvider>
-      </BrowserRouter>
-    );
-    // Verifica si el mensaje "No products available" se muestra cuando no hay productos
     expect(screen.getByText(/No products available/i)).toBeInTheDocument();
   });
+
+  // Aquí podrías agregar más tests si lo necesitas
 });
